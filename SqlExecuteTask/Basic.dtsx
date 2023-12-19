@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Basic"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{DC1DEDB2-0A55-463E-AB1C-7D0A4B441E85}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{3D6DE2A4-DAAB-46D7-BCFC-32FC298B5C4A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +25,12 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=Nasir;Initial Catalog=CustTable;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Basic-{87E378CD-A95A-4369-AFC7-D2DF9751C0CF}Nasir.CustTable;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=Nasir;User ID=Nasir;Initial Catalog=CustTable;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Basic-{87E378CD-A95A-4369-AFC7-D2DF9751C0CF}Nasir.CustTable;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1BtJotshBEW6qpiwsQTe0wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADWF41HtvpkANgndyC24/fMYOl31/ipoAAATD9Is7W3xAAAAAAOgAAAAAIAACAAAABnCGSOCboIGrvc0yF/IOfyDhuaC5N6mdKldBM4q/f2DCAAAAC+dNXlIK8IEqTWmKfuFA1UkLdznHmH3irENbTXaOISIkAAAAB6cWVebWM0S9ksk3QLbWWMn2ElTPjZvXQkXFua2LABAkSBprRLy0Hn1sAxTpk7Wt16kGXsG2NHEoE0lRDIfONh</DTS:Password>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -45,7 +50,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{87E378CD-A95A-4369-AFC7-D2DF9751C0CF}"
-          SQLTask:SqlStatementSource="insert into SqlTask(CustId,CustName,CustCountry)&#xA;values(1,'Jhon','US')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="insert into dbo.SqlTask(CustId,CustName,CustCountry)&#xA;values(1,Jhon,US)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>

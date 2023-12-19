@@ -1,0 +1,123 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/19/2023 8:04:10 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="NASIR"
+  DTS:CreatorName="NASIR\nasir"
+  DTS:DTSID="{0CFED280-98EC-41ED-A488-05CDBDE96760}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{936B7235-F292-4E66-8F3A-5E78F7ED0E41}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Nasir.CustTable.Nasir1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{0FFE4E96-F50C-4333-8E91-2A170D86CD1F}"
+      DTS:ObjectName="Nasir.CustTable.Nasir1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=Nasir;User ID=Nasir;Initial Catalog=CustTable;Persist Security Info=True;Encrypt=False;Application Name=SSIS-Package1-{0FFE4E96-F50C-4333-8E91-2A170D86CD1F}Nasir.CustTable.Nasir1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1BtJotshBEW6qpiwsQTe0wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAF9IfX3UABQToYBn+N5E4nSyb5caxBvw7QPMh/gRL0HAAAAAAOgAAAAAIAACAAAACGtEDS2OsGDhRXR/kGuFKrcJAi0mhfgoTT5q9c5bHdUiAAAACDutmaBexx6cwndLx7z0/Nq9viPgDdzlswBDGdG6CJikAAAAANUiguEG8dCYx7bzaYGiGXLHMK65BIWOjpZpl/iDfrh9EEZ8/piSVrUe6asDGa8XzFWzk8gW3Py/KyXYw+Nk9o</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{A0EA5471-B7A8-4BE7-849E-7DE3EA3C9146}"
+      DTS:ObjectName="ssis_CustCountry">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">DCountry</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{DE5E31B1-0FBF-495E-AD33-EB35A594E9FA}"
+      DTS:ObjectName="ssis_CustId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{6ADA238D-1198-4475-BD04-AA64ACB5E0C0}"
+      DTS:ObjectName="ssis_CustName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">DName</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{730D2E09-CA59-44CA-B6A4-B675EB299F30}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0FFE4E96-F50C-4333-8E91-2A170D86CD1F}"
+          SQLTask:SqlStatementSource="insert into SqlTask(CustId,CustName,CustCountry)&#xA;values(@CustId,@CustName,@CustCountry)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@CustId"
+            SQLTask:DtsVariableName="$Package::ssis_CustId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@CustName"
+            SQLTask:DtsVariableName="$Package::ssis_CustName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@CustCountry"
+            SQLTask:DtsVariableName="$Package::ssis_CustCountry"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="485.000001032438,70.3529411148035" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
