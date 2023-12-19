@@ -1,0 +1,1 @@
+select CustId,CustName,CustCountry from SqlTask
